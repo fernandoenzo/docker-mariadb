@@ -22,6 +22,9 @@ service mysql start
 mysql -u root mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'localhost' IDENTIFIED BY 'mysql' WITH GRANT OPTION;"
 mysql -u root mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'%' IDENTIFIED BY 'mysql' WITH GRANT OPTION;"
 
+# Allow incoming connections from anywhere
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
+
 # Allow user 'root' to login from outside the console
 # mysql -u root mysql -e "update user set plugin='' where user='root'; flush privileges;"
 
