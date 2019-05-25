@@ -20,6 +20,7 @@ service mysql start
 
 # Create user 'mysql' with password 'mysql' with all privileges
 mysql -u root mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'localhost' IDENTIFIED BY 'mysql' WITH GRANT OPTION;"
+mysql -u root mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'%' IDENTIFIED BY 'mysql' WITH GRANT OPTION;"
 
 # Allow user 'root' to login from outside the console
 # mysql -u root mysql -e "update user set plugin='' where user='root'; flush privileges;"
