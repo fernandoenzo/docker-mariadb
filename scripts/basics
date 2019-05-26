@@ -31,6 +31,10 @@ sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 aptitude install -y phpmyadmin
 service mysql stop
 
+# Put phpMyAdmin on the root of Apache rather than under an alias on /phpmyadmin
+sed -i "s/Alias/# Alias/" /etc/phpmyadmin/apache.conf
+sed -i "s/\/var\/www\/html/\/usr\/share\/phpmyadmin/" /etc/apache2/sites-available/000-default.conf
+
 # Allow login without password in phpMyAdmin
 # sed -i "103d" /etc/phpmyadmin/config.inc.php
 # sed -i "103i\ \ \ \ \$cfg['Servers'][\$i]['AllowNoPassword'] = TRUE;" /etc/phpmyadmin/config.inc.php
