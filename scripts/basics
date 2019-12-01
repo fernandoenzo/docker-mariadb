@@ -39,8 +39,5 @@ sed -i "s/\/var\/www\/html/\/usr\/share\/phpmyadmin/" /etc/apache2/sites-availab
 # sed -i "103d" /etc/phpmyadmin/config.inc.php
 # sed -i "103i\ \ \ \ \$cfg['Servers'][\$i]['AllowNoPassword'] = TRUE;" /etc/phpmyadmin/config.inc.php
 
-# Bugfix for phpMyAdmin 4.6.6
-sed -i 's/\ == 1)/)\ == 1/' /usr/share/phpmyadmin/libraries/sql.lib.php
-
 apt-get -y autoremove ; aptitude -y autoclean ; apt-get -y autoclean
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.aptitude
