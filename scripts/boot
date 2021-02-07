@@ -4,6 +4,6 @@ set -e
 
 service cron start > /dev/null 2>&1
 service apache2 start > /dev/null 2>&1
-service mysql start
+service mariadb start
 exec /bin/bash -c "$@"
 
