@@ -8,9 +8,6 @@ export DEBIAN_FRONTEND=noninteractive
 # Create the user 'mysql' with uid 1000
 adduser --uid 1000 --disabled-login --shell=/bin/false --gecos "MySQL Server" --no-create-home --home /nonexistent mysql
 
-# Add Sid repository to install phpMyAdmin
-echo "deb http://deb.debian.org/debian sid main" >> /etc/apt/sources.list
-
 # Select Apache server by default in phpMyAdmin installation
 echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
 
